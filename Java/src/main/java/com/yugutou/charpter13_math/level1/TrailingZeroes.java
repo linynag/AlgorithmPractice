@@ -2,7 +2,7 @@ package com.yugutou.charpter13_math.level1;
 
 public class TrailingZeroes {
     public static void main(String[] args) {
-        System.out.println(trailingZeroes(5));
+        System.out.println(trailingZeroes(25));
     }
 
     public static int trailingZeroes(int n) {

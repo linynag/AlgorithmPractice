@@ -15,22 +15,15 @@ public class FibonacciTest {
         System.out.println("count:" + count_1 + "   result: " + result);
         count_1=0;
         int result2 = fibonacci(20);
-        System.out.println("count:" + count_1 + "   result: " + result);
+        System.out.println("count:" + count_1 + "   result: " + result2);
 
         count_1=0;
-        int result3 = fibonacci(31);
-        System.out.println("count:" + count_1 + "   result: " + result);
-//
-//
-//
-////        int result = fibonacci(30);
-////        System.out.println("count:" + count_1 + "   result: " + result);
-//        result = fibonacci_2(30);
-//        System.out.println("count:" + count_2 + "   result: " + result);
-////        Arrays.fill(arr, -1);
-////        arr[0] = 1;
-////        result = fibonacci_3(30);
-////        System.out.println("count:" + count_3 + "   result: " + result);
+        int result3 = fibonacci(30);
+        System.out.println("count:" + count_1 + "   result: " + result3);
+        count_1=0;
+        int result4 = fibonacci(31);
+        System.out.println("count:" + count_1 + "   result: " + result4);
+
     }
 
     /**

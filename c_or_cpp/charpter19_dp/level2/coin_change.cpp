@@ -3,21 +3,22 @@
 
 using namespace std;
 
-int coinChange(vector<int>& coins, int amount) {
-    int max = amount + 1;
-    int dp[amount + 1];
-    for (int i = 0; i <= amount; i++) {
-        dp[i] = max;
-    }
+int coinChange(vector<int>& coins, int M) {
+    int max = M + 1;
+    int dp[max];
+    fill(dp, dp + max, max);
     dp[0] = 0;
-    for (int i = 1; i <= amount; i++) {
+    for (int i = 1; i <= M; i++) {
         for (int j = 0; j < coins.size(); j++) {
             if (coins[j] <= i) {
-                dp[i] = min(dp[i], dp[0] + 1);
+                dp[i] = min(dp[i], dp[i - coins[j]] + 1);
             }
         }
     }
-    return dp[amount] > amount ? -1 : dp[amount];
+    if (dp[M] > M) {
+        return -1;
+    }
+    return dp[M];
 }
 
 int main() {

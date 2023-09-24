@@ -13,14 +13,14 @@ public class FibonacciTest {
 
         int result = fibonacci(10);
         System.out.println("count:" + count_1 + "   result: " + result);
-        count_1=0;
+        count_1 = 0;
         int result2 = fibonacci(20);
         System.out.println("count:" + count_1 + "   result: " + result2);
 
-        count_1=0;
+        count_1 = 0;
         int result3 = fibonacci(30);
         System.out.println("count:" + count_1 + "   result: " + result3);
-        count_1=0;
+        count_1 = 0;
         int result4 = fibonacci(31);
         System.out.println("count:" + count_1 + "   result: " + result4);
 
@@ -33,8 +33,7 @@ public class FibonacciTest {
      * @return
      */
     public static int fibonacci(int n) {
-        String str = "我爱你";
-//        System.out.println(str);
+        System.out.println("我爱你");
         count_1++;
         if (n == 0) {
             return 1;

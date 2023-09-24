@@ -2,7 +2,10 @@ package com.yugutou.charpter13_math.level1;
 
 public class Reverse {
     public static void main(String[] args) {
-        System.out.println(reverse(432));
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Math.pow(2,31)-1);
+        System.out.println(2^30-1);
+//        System.out.println(reverse(432));
     }
     public static int reverse(int x) {
         int res = 0;

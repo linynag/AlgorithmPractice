@@ -14,4 +14,5 @@ public class Factorial {
         }
         return factorial(n - 1) * n;
     }
+
 }

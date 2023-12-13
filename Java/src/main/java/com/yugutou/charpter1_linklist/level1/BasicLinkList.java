@@ -1,13 +1,16 @@
 package com.yugutou.charpter1_linklist.level1;
 
+import com.sun.org.apache.xpath.internal.operations.Neg;
+import sun.awt.geom.AreaOp;
+
 /**
  * 构造链表，使用静态内部类定表示结点，实现增加和删除元素的功能
- *
  */
 public class BasicLinkList {
     static class Node {
         final int data;
         Node next;
+
         public Node(int data) {
             this.data = data;
         }
@@ -45,13 +48,13 @@ public class BasicLinkList {
      * @return 链表长度
      */
     public static int getLength(Node head) {
-        int length = 0;
-        Node node = head;
-        while (node != null) {
-            length++;
-            node = node.next;
+        int size = 0;
+        while (head != null) {
+            size++;
+            head = head.next;
         }
-        return length;
+        return size;
+
     }
 
     /**
@@ -63,35 +66,29 @@ public class BasicLinkList {
      * @return 插入后得到的链表头节点
      */
     public static Node insertNode(Node head, Node nodeInsert, int position) {
-        // 需要判空，否则后面可能会有空指针异常
+        // 头节点非空判断
         if (head == null) {
             return nodeInsert;
         }
-        //越界判断
-        int size = getLength(head);
-        if (position > size + 1 || position < 1) {
-            System.out.println("位置参数越界");
+        int length = getLength(head);
+        // 插入位置 界限判断
+        if (position > length + 1 && position < 1) {
+            System.out.println("界限判断未通过");
             return head;
         }
-
-        //在链表开头插入
+        // 表头插入
         if (position == 1) {
             nodeInsert.next = head;
-//            return nodeInsert;
-            //上面return还可以这么写：
-            head = nodeInsert;
-            return head;
+            return nodeInsert;
         }
-
+        int i = 1;
         Node pNode = head;
-        int count = 1;
-        while (count < position - 1) {
-            pNode = pNode.next;
-            count++;
+        while (i < position - 1) {
+            pNode = head.next;
+            i++;
         }
         nodeInsert.next = pNode.next;
         pNode.next = nodeInsert;
-
         return head;
     }
 
@@ -106,24 +103,21 @@ public class BasicLinkList {
         if (head == null) {
             return null;
         }
-        int size = getLength(head);
-        //思考一下，这里为什么是size，而不是size+1
-        if (position > size || position <1) {
-            System.out.println("输入的参数有误");
-            return head;
+        int length = getLength(head);
+        if (position < length && position < 1) {
+            System.out.println("校验出错");
         }
         if (position == 1) {
-            //curNode就是链表的新head
             return head.next;
         } else {
-            Node cur = head;
             int count = 1;
+            Node pNode = head;
             while (count < position - 1) {
-                cur = cur.next;
                 count++;
+                pNode = pNode.next;
             }
-            Node curNode = cur.next;
-            cur.next = curNode.next;
+            Node cur = pNode.next;
+            pNode.next = cur.next;
         }
         return head;
     }
@@ -134,11 +128,11 @@ public class BasicLinkList {
      * @param head 头节点
      */
     public static String toString(Node head) {
-        Node current = head;
+        Node cur = head;
         StringBuilder sb = new StringBuilder();
-        while (current != null) {
-            sb.append(current.data).append("\t");
-            current = current.next;
+        while (cur != null) {
+            sb.append(cur.data).append("\t");
+            cur = cur.next;
         }
         return sb.toString();
     }

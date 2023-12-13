@@ -11,10 +11,11 @@ public class BasicLink {
         System.out.println(head);
     }
 
-    private static Node initLinkedList(int[] array) {
-        Node head = null, cur = null;
-        for (int i = 0; i < array.length; i++) {
-            Node newNode = new Node(array[i]);
+    private static Node initLinkedList(int[] a) {
+        Node head = null;
+        Node cur = null;
+        for (int i = 0; i < a.length; i++) {
+            Node newNode = new Node(a[i]);
             newNode.next = null;
             if (i == 0) {
                 head = newNode;
@@ -27,6 +28,7 @@ public class BasicLink {
         return head;
     }
 
+
     static class Node {
         public int val;
         public Node next;
@@ -36,7 +38,5 @@ public class BasicLink {
             next = null;
         }
     }
-
-
 
 }

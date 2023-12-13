@@ -4,15 +4,18 @@ package com.yugutou.charpter1_linklist.level1;
  * 在算法中最常用的链表定义方式
  */
 public class ListNode {
-    public int val;
-    public ListNode next;
+    private int var;
+    private ListNode next;
 
-    public ListNode(int x) {
-        val = x;
-        next = null;
+    ListNode (int x){
+        this.var=x;
+        this.next=null;
     }
+
 
     public static void main(String[] args) {
-        ListNode listnode=new ListNode(1);
+        ListNode listNode = new ListNode(2);
+        System.out.println(listNode.var);
     }
+
 }

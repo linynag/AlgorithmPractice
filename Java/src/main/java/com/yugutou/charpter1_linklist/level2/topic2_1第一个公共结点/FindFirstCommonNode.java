@@ -13,8 +13,6 @@ public class FindFirstCommonNode {
         ListNode la = heads[0];
         ListNode lb = heads[1];
 
-
-
         int testMethod = 1;
         ListNode node = new ListNode(0);
         switch (testMethod) {
@@ -119,6 +117,7 @@ public class FindFirstCommonNode {
 
     /**
      * 方法4：通过序列拼接
+     * 双指针的变种
      */
     public static ListNode findFirstCommonNodeByCombine(ListNode pHead1, ListNode pHead2) {
         if (pHead1 == null || pHead2 == null) {

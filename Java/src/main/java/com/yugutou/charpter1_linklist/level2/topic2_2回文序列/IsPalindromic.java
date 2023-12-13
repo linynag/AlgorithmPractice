@@ -14,16 +14,16 @@ public class IsPalindromic {
         int testMethod = 1;
         boolean result = false;
         switch (testMethod) {
-            case 1://方法1：通过双指针的方式来判断
+            case 1:// 方法1：通过双指针的方式来判断
                 result = isPalindromeByTwoPoints(node);
                 break;
-            case 2: //方法2：全部压栈
+            case 2: // 方法2：全部压栈
                 result = isPalindromeByAllStack(node);
                 break;
-            case 3://方法3：只将一半的数据压栈
+            case 3:// 方法3：只将一半的数据压栈
                 result = isPalindromeByHalfStack(node);
                 break;
-            case 4://方法4：通过递归来实现
+            case 4:// 方法4：通过递归来实现
                 result = isPalindromeByRe(node);
                 break;
 
@@ -73,12 +73,12 @@ public class IsPalindromic {
     public static boolean isPalindromeByAllStack(ListNode head) {
         ListNode temp = head;
         Stack<Integer> stack = new Stack();
-        //把链表节点的值存放到栈中
+        // 把链表节点的值存放到栈中
         while (temp != null) {
             stack.push(temp.val);
             temp = temp.next;
         }
-        //然后再出栈
+        // 然后再出栈
         while (head != null) {
             if (head.val != stack.pop()) {
                 return false;
@@ -99,17 +99,17 @@ public class IsPalindromic {
             return true;
         ListNode temp = head;
         Stack<Integer> stack = new Stack();
-        //链表的长度
+        // 链表的长度
         int len = 0;
-        //把链表节点的值存放到栈中
+        // 把链表节点的值存放到栈中
         while (temp != null) {
             stack.push(temp.val);
             temp = temp.next;
             len++;
         }
-        //len长度除以2
+        // len长度除以2
         len >>= 1;
-        //然后再出栈
+        // 然后再出栈
         while (len-- >= 0) {
             if (head.val != stack.pop())
                 return false;
@@ -117,6 +117,44 @@ public class IsPalindromic {
         }
         return true;
     }
+
+
+    /**
+     * 将链表的前半部分节点值压入栈中，然后再与后半部分比较。这样做可以避免对链表进行反转操作，从而简化了代码。
+     *
+     * @param head
+     * @return
+     */
+
+    public static boolean isPalindrome(ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+
+        ListNode slow = head, fast = head;
+        Stack<Integer> stack = new Stack<>();
+
+        while (fast != null && fast.next != null) {
+            stack.push(slow.val);
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Skip the middle element for odd-length lists
+        if (fast != null) {
+            slow = slow.next;
+        }
+
+        while (slow != null) {
+            if (stack.pop() != slow.val) {
+                return false;
+            }
+            slow = slow.next;
+        }
+
+        return true;
+    }
+
 
     /**
      * 方法4：通过递归来实现

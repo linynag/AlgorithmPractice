@@ -7,7 +7,7 @@ public class ListNode {
     private int var;
     private ListNode next;
 
-    ListNode (int x){
+    public ListNode(int x){
         this.var=x;
         this.next=null;
     }

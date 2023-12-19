@@ -82,22 +82,22 @@ public class IsPalindromic {
         return true;
     }
 
-    private static ListNode initLinkedList(int[] a) {
-        ListNode head = null;
-        ListNode cur = null;
-        for (int i = 0; i < a.length; i++) {
-            ListNode newNode = new ListNode(a[i]);
-            newNode.next = null;
-            if (i == 0) {
-                head = newNode;
-                cur = newNode;
-            } else {
-                cur.next = newNode;
-                cur = newNode;
+        private static ListNode initLinkedList(int[] a) {
+            ListNode head = null;
+            ListNode cur = null;
+            for (int i = 0; i < a.length; i++) {
+                ListNode newNode = new ListNode(a[i]);
+                newNode.next = null;
+                if (i == 0) {
+                    head = newNode;
+                    cur = newNode;
+                } else {
+                    cur.next = newNode;
+                    cur = newNode;
+                }
             }
+            return head;
         }
-        return head;
-    }
 
     static class ListNode {
         public int val;

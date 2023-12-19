@@ -7,15 +7,6 @@ import sun.awt.geom.AreaOp;
  * 构造链表，使用静态内部类定表示结点，实现增加和删除元素的功能
  */
 public class BasicLinkList {
-    static class Node {
-        final int data;
-        Node next;
-
-        public Node(int data) {
-            this.data = data;
-        }
-    }
-
     public static void main(String[] args) {
         // 头部添加节点1
         Node head = new Node(1);
@@ -54,7 +45,6 @@ public class BasicLinkList {
             head = head.next;
         }
         return size;
-
     }
 
     /**
@@ -135,6 +125,15 @@ public class BasicLinkList {
             cur = cur.next;
         }
         return sb.toString();
+    }
+
+    static class Node {
+        final int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+        }
     }
 
 }

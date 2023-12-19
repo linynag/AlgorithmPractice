@@ -1,7 +1,6 @@
 package com.yugutou.charpter1_linklist.level2.topic2_2回文序列;
 
 
-import com.yugutou.charpter19_dp.level1.第一炮UniquePaths;
 import org.w3c.dom.NodeList;
 
 import java.util.Stack;
@@ -16,7 +15,7 @@ public class IsPalindromic {
         boolean result = false;
         switch (testMethode) {
             case 1:
-                result = isPalindromenByTwoPoints(node);
+                result = isPalindromeByTwoPoints(node);
                 break;
             case 2:
                 result = isPalindromeByAllStack(node);
@@ -47,8 +46,8 @@ public class IsPalindromic {
             temp = temp.next;
             length++;
         }
-        // 不管是向上取整数还是 向下取整数都行  // TODO: 2023/12/17 向上取整数和向下取整数的方法
-        length = (length + 1) / 2;
+        // 向下取整数  向上取整：(length % 2 == 0) ? length / 2 : (length / 2) + 1;
+        length = length / 2;
         while (length-- > 0) {
             if (node.val != stack.pop()) {
                 return false;
@@ -78,7 +77,7 @@ public class IsPalindromic {
         return true;
     }
 
-    private static boolean isPalindromenByTwoPoints(ListNode node) {
+    private static boolean isPalindromeByTwoPoints(ListNode node) {
         return true;
     }
 
